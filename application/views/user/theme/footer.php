@@ -1,9 +1,9 @@
+</div>
     <footer class="main-footer">
         <div class="pull-right hidden-xs">
-            <b>Version</b> 2.4.0
+            Page rendered in <strong>{elapsed_time}</strong> seconds.
         </div>
-        <strong>Copyright &copy; 2014-2016 <a href="https://adminlte.io">Almsaeed Studio</a>.</strong> All rights
-        reserved.
+        <?php echo  (ENVIRONMENT === 'development') ?  'CodeIgniter Version <strong>' . CI_VERSION . '</strong>' : '' ?>
     </footer>
 </div>
 <!-- ./wrapper -->
@@ -18,6 +18,17 @@
 </script>
 <!-- Bootstrap 3.3.7 -->
 <script src="<?=HTTP_PATH?>bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<!-- DataTables -->
+<script src="<?=HTTP_PATH?>bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
+<script src="<?=HTTP_PATH?>bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+<!-- Select2 -->
+<script src="<?=HTTP_PATH?>bower_components/select2/dist/js/select2.full.min.js"></script>
+<script>
+  $(function () {
+    $('#example1').DataTable();
+    $('.select2').select2();
+  })
+</script>
 <!-- Morris.js charts -->
 <script src="<?=HTTP_PATH?>bower_components/raphael/raphael.min.js"></script>
 <script src="<?=HTTP_PATH?>bower_components/morris.js/morris.min.js"></script>

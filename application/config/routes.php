@@ -55,3 +55,33 @@ $route['translate_uri_dashes'] = FALSE;
 
 $route['admin/login'] = 'admin_login';
 $route['admin/login/auth'] = 'admin_login/auth';
+$route['admin/logout'] = 'admin_login/logout';
+$route['user/login'] = 'user_login';
+$route['user/login/auth'] = 'user_login/auth';
+$route['user/logout'] = 'user_login/logout';
+
+$route['admin/produk/tambah'] = 'admin/produk_tambah';
+$route['admin/produk/add'] = 'admin/produk_add';
+$route['admin/produk/edit/(:any)'] = 'admin/produk_edit/$1';
+$route['admin/produk/update'] = 'admin/produk_update';
+
+$route['admin/shop/tambah'] = 'admin/shop_tambah';
+$route['admin/shop/add'] = 'admin/shop_add';
+$route['admin/shop/edit/(:any)'] = 'admin/shop_edit/$1';
+$route['admin/shop/update'] = 'admin/shop_update';
+
+$route['admin/user/tambah'] = 'admin/user_tambah';
+$route['admin/user/add'] = 'admin/user_add';
+$route['admin/user/edit/(:any)'] = 'admin/user_edit/$1';
+$route['admin/user/update'] = 'admin/user_update';
+
+$route['admin/order/show/(:any)'] = 'admin/order_show/$1';
+$route['admin/order/update'] = 'admin/order_update';
+
+$route['user/users/tambah'] = 'user/users_tambah';
+$route['user/users/add'] = 'user/users_add';
+$route['user/users/edit/(:any)'] = 'user/users_edit/$1';
+$route['user/users/update'] = 'user/users_update';
+
+$route['user/order/show/(:any)'] = 'user/order_show/$1';
+$route['user/order/update'] = 'user/order_update';
