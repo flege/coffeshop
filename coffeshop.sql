@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 12, 2018 at 09:25 AM
+-- Generation Time: Nov 12, 2018 at 10:38 AM
 -- Server version: 5.6.25
 -- PHP Version: 5.6.11
 
@@ -31,6 +31,20 @@ CREATE TABLE IF NOT EXISTS `admin` (
   `nama` varchar(100) NOT NULL,
   `username` varchar(100) NOT NULL,
   `password` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `detail_transaksi`
+--
+
+CREATE TABLE IF NOT EXISTS `detail_transaksi` (
+  `id_detail_transaksi` int(11) NOT NULL,
+  `id_transaksi` int(11) NOT NULL,
+  `id_produk` int(11) NOT NULL,
+  `jumlah` int(11) NOT NULL,
+  `harga` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -83,6 +97,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `nama` varchar(100) NOT NULL,
   `username` varchar(100) NOT NULL,
   `password` varchar(100) NOT NULL,
+  `role` enum('owner','member') DEFAULT NULL,
   `status` enum('1','0') NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -95,6 +110,12 @@ CREATE TABLE IF NOT EXISTS `user` (
 --
 ALTER TABLE `admin`
   ADD PRIMARY KEY (`id_admin`);
+
+--
+-- Indexes for table `detail_transaksi`
+--
+ALTER TABLE `detail_transaksi`
+  ADD PRIMARY KEY (`id_detail_transaksi`);
 
 --
 -- Indexes for table `produk`
@@ -129,6 +150,11 @@ ALTER TABLE `user`
 --
 ALTER TABLE `admin`
   MODIFY `id_admin` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `detail_transaksi`
+--
+ALTER TABLE `detail_transaksi`
+  MODIFY `id_detail_transaksi` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `produk`
 --
