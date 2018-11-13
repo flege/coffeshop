@@ -84,4 +84,7 @@ $route['user/users/edit/(:any)'] = 'user/users_edit/$1';
 $route['user/users/update'] = 'user/users_update';
 
 $route['user/order/show/(:any)'] = 'user/order_show/$1';
-$route['user/order/update'] = 'user/order_update';
+$route['user/order/tambah'] = 'user/order_tambah';
+$route['user/order/tambah/produk'] = 'user/order_tambah_produk';
+$route['user/order/add/produk'] = 'user/order_add_produk';
+$route['user/order/add'] = 'user/order_add';

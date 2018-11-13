@@ -6,6 +6,10 @@
   <title>AdminLTE 2 | Log in</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  <meta content="Coffe Shop." itemprop="headline" />
+  <meta name="description" content="Sistem Informasi Coffe Shop" itemprop="description" />
+  <meta name="keywords" content="coffe shop, coffe, shop, kopi, codeigniter, mysql, flege, abidurrahman al faruq, abid, komsi, ugm" />
+  <meta name="author" content="Abidurrahman Al Faruq"  />
   <!-- Bootstrap 3.3.7 -->
   <link rel="stylesheet" href="<?=HTTP_PATH?>bower_components/bootstrap/dist/css/bootstrap.min.css">
   <!-- Font Awesome -->

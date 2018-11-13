@@ -6,7 +6,7 @@
 
 <!-- Main content -->
 <section class="content">
-<div class="box">
+    <div class="box">
         <div class="box-header with-border">
             <h3 class="box-title">Produk</h3>
         </div>

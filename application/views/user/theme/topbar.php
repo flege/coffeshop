@@ -2,9 +2,9 @@
     <!-- Logo -->
     <a href="<?=base_url('admin');?>" class="logo">
         <!-- mini logo for sidebar mini 50x50 pixels -->
-        <span class="logo-mini"><b>A</b>LT</span>
+        <span class="logo-mini"><b>CS</b></span>
         <!-- logo for regular state and mobile devices -->
-        <span class="logo-lg"><b>Admin</b>LTE</span>
+        <span class="logo-lg">Coffe Shop</span>
     </a>
     <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top">
@@ -25,12 +25,13 @@
                     <li class="user-header">
                         <img src="<?=HTTP_PATH?>dist/img/user.png" class="img-circle" alt="User Image">
                         <p><?=$this->session->userdata('nama')?></p>
+                        <p><?=$this->session->userdata('role')?></p>
                     </li>
                     
                     <!-- Menu Footer-->
                     <li class="user-footer">
                         <div class="pull-left">
-                            <a href="<?=base_url('user/profile')?>" class="btn btn-default btn-flat">Profile</a>
+                            <a href="<?=base_url('user/profile')?>" class="btn btn-default btn-flat">Change Password</a>
                         </div>
                         <div class="pull-right">
                             <a href="<?=base_url('user/logout')?>" class="btn btn-default btn-flat">log Out</a>

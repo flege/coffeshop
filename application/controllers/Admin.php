@@ -18,6 +18,48 @@ class Admin extends CI_Controller {
         $data['shop'] = $this->db->query("SELECT COUNT(id_shop) a FROM shop")->result()[0]->a;
 		$this->master($data,'dashboard');
     }
+    function profile(){
+        $id_admin =  $this->session->userdata('id_admin');
+		if($id_admin > 0){
+			$data['title'] = 'profile';
+            $data['side'] = 'index';
+			$data['profile'] = $this->db->query("SELECT * FROM admin WHERE id_admin = '$id_admin'")->result()[0];
+			$this->master($data,'profile');
+		}else{
+			show_404();
+		}
+    }
+    function profile_update(){
+		if($this->input->post('submit')){
+            $id_admin = $this->session->userdata('id_admin');
+            $old_password = md5($this->input->post('old_password'));
+            $new_password = $this->input->post('new_password');
+            $confirm_password = $this->input->post('confirm_password');
+
+            $cek_old_password = $this->db->query("SELECT password FROM admin WHERE password = '$old_password' AND id_admin = '$id_admin'")->num_rows();
+            if($cek_old_password == 1){
+                if($new_password == $confirm_password){
+                    $data_update = array(
+                        'password' => md5($new_password),
+                    );
+                    $this->db->where('id_admin',$id_admin);
+                    $this->db->update('admin',$data_update);
+
+                    $this->session->set_flashdata('item', array('message' => 'Berhasil mengganti password','color' => 'success'));
+                }else{
+                    //konfirmasi password baru anda tidak sama
+                    $this->session->set_flashdata('item', array('message' => 'Konfirmasi password baru anda tidak sama','color' => 'danger'));
+                }
+            }else{
+                //password lama anda salah
+                $this->session->set_flashdata('item', array('message' => 'Password lama anda salah','color' => 'danger'));
+            }
+
+			redirect('admin/profile');
+		}else{
+			show_404();
+		}
+    }
     
     //order-------------------------------------------------------------------------------------------------------
     function order(){
