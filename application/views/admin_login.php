@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>AdminLTE 2 | Log in</title>
+  <title>Coffee | Log in</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <meta content="Coffe Shop." itemprop="headline" />
@@ -32,7 +32,7 @@
 <body class="hold-transition login-page">
 <div class="login-box">
   <div class="login-logo">
-    <a href="<?=HTTP_PATH?>index2.html">Coffee Shop</a>
+    <a href="<?=base_url('admin')?>">Coffee Shop</a>
   </div>
   <!-- /.login-logo -->
   <div class="login-box-body">
