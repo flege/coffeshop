@@ -32,7 +32,7 @@
 <body class="hold-transition login-page">
 <div class="login-box">
   <div class="login-logo">
-    <a href="<?=HTTP_PATH?>index2.html">Coffe Shop</a>
+    <a href="<?=HTTP_PATH?>index2.html">Coffee Shop</a>
   </div>
   <!-- /.login-logo -->
   <div class="login-box-body">
