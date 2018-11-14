@@ -18,7 +18,7 @@
                     <input type="number" name="harga" value="<?=$data->harga?>" class="form-control" placeholder="......." required>
                 </div>
                 <div class="form-group">
-                    <label>Harga</label>
+                    <label>Status</label>
                     <select name="status" class="form-control" required>
                         <option value="1" <?php if($data->status == 1){echo 'selected';} ?>>Aktif</option>
                         <option value="0" <?php if($data->status == 0){echo 'selected';} ?>>Tidak Aktif</option>

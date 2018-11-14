@@ -30,6 +30,7 @@
                 <thead>
                     <tr>
                         <th width="1">No</th>
+                        <th width="1"></th>
                         <th>Produk</th>
                         <th width="1">Jumlah</th>
                         <th width="1">Harga</th>
@@ -44,10 +45,11 @@
                     ?>
                     <tr>
                         <td><?=$i++?></td>
+                        <td><a href="<?php echo base_url('user/order/edit/').$d->id_detail_transaksi?>" title="edit" class="btn btn-xs btn-info"><i class="fa fa-pencil"></i> </a></td>
                         <td><?=$d->produk?></td>
                         <td class="text-right"><?=number_format($d->jumlah)?></td>
                         <td class="text-right">Rp<?=number_format($d->harga)?></td>
-                        <td class="text-right">Rp<?=number_format($total)?></td>
+                        <td class="text-right">Rp<?=number_format($d->jumlah*$d->harga)?></td>
                     </tr>
                     <?php
                         }

@@ -79,7 +79,7 @@ class User extends CI_Controller {
         $data['title'] = 'order';
         $data['side'] = 'tambah';
         $id_shop = $this->session->userdata('id_shop');
-        $data['detail'] = $this->db->query("SELECT a.*, produk.nama produk FROM detail_transaksi a JOIN produk USING(id_produk) WHERE id_transaksi = 0 AND id_shop = '$id_shop'")->result();
+        $data['detail'] = $this->db->query("SELECT a.*, produk.nama produk FROM detail_transaksi a JOIN produk USING(id_produk) WHERE id_transaksi = 0 AND id_shop = '$id_shop' AND jumlah > 0")->result();
 		$this->master($data,'order_tambah');
     }
     function order_tambah_produk(){
@@ -87,6 +87,17 @@ class User extends CI_Controller {
         $data['side'] = 'tambah';
         $data['produk'] = $this->db->query("SELECT * FROM produk WHERE status = '1'")->result();
 		$this->master($data,'order_tambah_produk');
+    }
+    function order_edit_produk($id = null){
+        if($id > 0){
+            $data['title'] = 'order';
+            $data['side'] = 'tambah';
+            $data['produk'] = $this->db->query("SELECT * FROM produk WHERE status = '1'")->result();
+            $data['data'] = $this->db->query("SELECT * FROM detail_transaksi WHERE id_detail_transaksi = '$id'")->result()[0];
+            $this->master($data,'order_edit_produk');
+        }else{
+            show_404();
+        }
     }
     function order_add_produk(){
         if($this->input->post()){
@@ -117,6 +128,23 @@ class User extends CI_Controller {
                 );
                 $this->db->insert('detail_transaksi',$data_insert);
             }
+
+            $this->session->set_flashdata('item', array('message' => 'Berhasil menambahkan data','color' => 'success'));
+			redirect('user/order/tambah');
+		}else{
+			show_404();
+		}
+    }
+    function order_update_produk(){
+        if($this->input->post()){
+            $jumlah = $this->input->post('jumlah');
+            $id_detail_transaksi = $this->input->post('id');
+            
+            $data_update = array(
+                'jumlah' => $jumlah,
+            );
+            $this->db->where('id_detail_transaksi',$id_detail_transaksi);
+            $this->db->update('detail_transaksi',$data_update);
 
             $this->session->set_flashdata('item', array('message' => 'Berhasil menambahkan data','color' => 'success'));
 			redirect('user/order/tambah');
@@ -156,7 +184,7 @@ class User extends CI_Controller {
         $data['title'] = 'users';
         $data['side'] = 'index';
         $id_shop = $this->session->userdata('id_shop');
-        $data['user'] = $this->db->query("SELECT a.*, shop.nama shop FROM user a JOIN shop USING(id_shop) WHERE id_shop = '$id_shop'")->result();
+        $data['user'] = $this->db->query("SELECT a.*, shop.nama shop FROM user a JOIN shop USING(id_shop) WHERE id_shop = '$id_shop' AND role = 'member'")->result();
 		$this->master($data,'user');
     }
     function users_tambah(){
